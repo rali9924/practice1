@@ -1,4 +1,21 @@
 import React, { useState } from 'react';
+import CalendarComponent from './Calendar';
+
+function WebsiteTitle({ title }) {
+  return (
+    <div>
+      <h1>{title}</h1>
+    </div>
+  );
+}
+
+function WebsiteDescription({ description }) {
+  return (
+    <div>
+      <h2>{description}</h2>
+    </div>
+  );
+}
 
 function ActivityPlannerForm() {
   const [date, setDate] = useState('');
@@ -11,42 +28,15 @@ function ActivityPlannerForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
+      <WebsiteTitle title="Weather Buddy" />
+      <WebsiteDescription description="A place for you to plan your everyday activities while staying up to date with the daily weather!"/>
       <div>
-        <label htmlFor="date">Date:</label>
-        <input
-          type="date"
-          id="date"
-          name="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-      </div>
-
-      <div>
-        <label htmlFor="activityName">Activity Name:</label>
-        <input
-          type="text"
-          id="activityName"
-          name="activityName"
-          value={activityName}
-          onChange={(e) => setActivityName(e.target.value)}
-        />
-      </div>
-
-      <div>
-        <label htmlFor="activityDescription">Activity Description:</label>
-        <textarea
-          id="activityDescription"
-          name="activityDescription"
-          value={activityDescription}
-          onChange={(e) => setActivityDescription(e.target.value)}
-        />
-      </div>
-
-      <button type="submit">Submit</button>
-    </form>
+      <CalendarComponent />
+    </div>
+    </div>
   );
 }
 
 export default ActivityPlannerForm;
+
