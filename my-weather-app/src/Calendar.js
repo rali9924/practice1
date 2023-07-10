@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import './App.css';
 
 
 function CalendarComponent() {
@@ -17,15 +18,15 @@ function CalendarComponent() {
     return (
       <div>
         <div>
-          <h2>Activities for {selectedDate.toDateString()}:</h2>
+          <h2 className="ActivitiesFor" >Activities for {selectedDate.toDateString()}:</h2>
           {activities.map((activity, index) => (
             <div key={index}>{activity}</div>
           ))}
         </div>
-        <input type="text" placeholder="Enter an activity" />
-        <button onClick={handleAddActivity}>Add Activity</button>
-        <div>
-        <Calendar onChange={handleDateChange} value={selectedDate} />
+        <input className="AddingActivities" type="text" placeholder="Enter an activity" />
+        <button className="AddingActivitiesButton" onClick={handleAddActivity}>Add Activity</button>
+        <div className="CalendarComponent">
+        <Calendar className="CalendarComponentSize" onChange={handleDateChange} value={selectedDate} />
       </div>
       </div>
     );

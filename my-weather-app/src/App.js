@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
 import CalendarComponent from './Calendar';
+import './App.css';
 
-function WebsiteTitle({ title }) {
+
+function WebsiteLogo() {
   return (
     <div>
-      <h1>{title}</h1>
+      <img src="weather-logo.png" alt="Logo" className="WebsiteLogo" />
     </div>
   );
 }
 
 function WebsiteDescription({ description }) {
   return (
-    <div>
-      <h2>{description}</h2>
+    <div className="WebsiteDescription">
+      <div className="LogoAndDescription">
+        <WebsiteLogo />
+        <h2>{description}</h2>
+      </div>
     </div>
   );
 }
@@ -29,11 +34,10 @@ function ActivityPlannerForm() {
 
   return (
     <div>
-      <WebsiteTitle title="Weather Buddy" />
-      <WebsiteDescription description="A place for you to plan your everyday activities while staying up to date with the daily weather!"/>
+      <WebsiteDescription description="A place for you to plan your everyday activities while staying up to date with the daily weather! You can input your activity and the calendar will show the weather corresponding to the date selected." />
       <div>
-      <CalendarComponent />
-    </div>
+        <CalendarComponent />
+      </div>
     </div>
   );
 }
