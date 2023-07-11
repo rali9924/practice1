@@ -1,18 +1,20 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const Activity = require('./models/Activity');
 const cors = require('cors'); // Import the cors package
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
 app.use(cors()); // Enable CORS for all routes
-
+// mongodb+srv://shellymasih22:babyyoda@finalproject.rme7wlq.mongodb.net/test?retryWrites=true&w=majority
+//mongodb+srv://rali9924:UrZjvbCnMutTiLCq@gama.xo1jhuq.mongodb.net/?retryWrites=true&w=majority
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://shellymasih22:babyyoda@finalproject.rme7wlq.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
-
   useUnifiedTopology: true,
 })
   .then(() => {
