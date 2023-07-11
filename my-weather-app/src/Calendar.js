@@ -14,7 +14,7 @@ function CalendarComponent() {
 
   const fetchActivities = async (date) => {
     try {
-      const response = await fetch(`http://localhost:3000/activities?date=${date.toISOString()}`);
+      const response = await fetch(`https://smiling-beret-seal.cyclic.app/activities?date=${date.toISOString()}`);
       if (!response.ok) {
         throw new Error('Error retrieving activities. Please try again later.');
       }
@@ -40,7 +40,7 @@ function CalendarComponent() {
 
         console.log(newActivity);
   
-        const response = await fetch('http://localhost:3000/activities', {
+        const response = await fetch('https://smiling-beret-seal.cyclic.app/activities', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(newActivity)
