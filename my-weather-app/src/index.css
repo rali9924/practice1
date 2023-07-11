@@ -13,3 +13,9 @@ code {
 }
 
 
+.h1 {
+  color: #5a8ee8;
+  text-align: left;
+  margin-right: 30px;
+  font-family: 'Press Start 2P', sans-serif;
+}
