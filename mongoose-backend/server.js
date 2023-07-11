@@ -11,25 +11,30 @@ app.use(cors()); // Enable CORS for all routes
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://shellymasih22:babyyoda@finalproject.rme7wlq.mongodb.net/test?retryWrites=true&w=majority', {
-    useNewUrlParser: true,
-    
-    useUnifiedTopology: true,
+  useNewUrlParser: true,
+
+  useUnifiedTopology: true,
+})
+  .then(() => {
+    console.log('Connected to MongoDB Atlas');
   })
-    .then(() => {
-      console.log('Connected to MongoDB Atlas');
-    })
-    .catch((error) => {
-      console.error('Error connecting to MongoDB Atlas:', error);
-    });
-  
+  .catch((error) => {
+    console.error('Error connecting to MongoDB Atlas:', error);
+  });
+
+
+app.get('/', (req, res) => {
+  res.redirect('/activities');
+});
+
 // Define routes
 app.get('/activities', async (req, res) => {
-try {
+  try {
     const activities = await Activity.find();
     res.json(activities);
-} catch (error) {
+  } catch (error) {
     res.status(500).json({ error: 'Error retrieving activities' });
-}
+  }
 });
 
 app.post('/activities', async (req, res) => {
@@ -46,5 +51,5 @@ app.post('/activities', async (req, res) => {
 
 // Start the server
 app.listen(3000, () => {
-console.log('Server listening on port 3000');
+  console.log('Server listening on port 3000');
 });
